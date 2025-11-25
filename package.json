@@ -1,0 +1,26 @@
+{
+  "name": "imagecrop",
+  "version": "1.0.0",
+  "description": "A toolset for building an image cropping interface in React.",
+  "keywords": [
+    "image",
+    "crop",
+    "react",
+    "size"
+  ],
+  "homepage": "https://github.com/CrazyLazy-Terren/imagecrop#readme",
+  "bugs": {
+    "url": "https://github.com/CrazyLazy-Terren/imagecrop/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CrazyLazy-Terren/imagecrop.git"
+  },
+  "license": "MIT",
+  "author": "CrazyLazy",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  }
+}
