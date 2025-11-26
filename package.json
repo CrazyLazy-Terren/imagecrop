@@ -1,6 +1,6 @@
 {
-  "name": "react-imagecrop",
-  "version": "1.0.0",
+  "name": "@crazylazy/react-imagecrop",
+  "version": "1.0.0-beta",
   "description": "A toolset for building an image cropping interface in React.",
   "keywords": [
     "image",
