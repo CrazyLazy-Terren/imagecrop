@@ -63,9 +63,7 @@ export const ImageCrop: React.FC<ImageCropProps> = ({
 
     // Set canvas size to match container
     canvas.width = canvas.clientWidth
-    canvas.height = canvas.cl
-<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
-ientHeight
+    canvas.height = canvas.clientHeight
     let width = canvas.clientWidth - edgeSize - canvasPadding * 2
     let height = canvas.clientHeight - edgeSize - canvasPadding * 2
 
