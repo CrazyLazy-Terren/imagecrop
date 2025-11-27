@@ -8,10 +8,10 @@ type ImageCropProps = {
   setImageSize: React.Dispatch<React.SetStateAction<Rectangle | null>>
   cropSize: Rectangle | null
   setCropSize: React.Dispatch<React.SetStateAction<Rectangle | null>>
-  edgeSize?: number
-  canvasPadding?: number
-  handleSize?: number
-  ratio?: number | 'free'
+  edgeSize?: number // the sensitive area size for detecting handle hover
+  canvasPadding?: number // padding between image and canvas border
+  handleSize?: number // size of the handle bars
+  ratio?: number | 'free' // a fixed ratio for cropping box to respect
 }
 
 export const ImageCrop: React.FC<ImageCropProps> = ({
@@ -63,7 +63,9 @@ export const ImageCrop: React.FC<ImageCropProps> = ({
 
     // Set canvas size to match container
     canvas.width = canvas.clientWidth
-    canvas.height = canvas.clientHeight
+    canvas.height = canvas.cl
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+ientHeight
     let width = canvas.clientWidth - edgeSize - canvasPadding * 2
     let height = canvas.clientHeight - edgeSize - canvasPadding * 2
 
