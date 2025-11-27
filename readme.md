@@ -15,7 +15,7 @@ npm install @crazylazy/react-image-crop
 ## Usage
 
 ```tsx
-import { ImageCrop } from '@crazylazy/react-image-crop'
+import { ImageCrop, useImageCrop } from '@crazylazy/react-image-crop'
 const App = () => {
   // logic core for image cropping
   const { getCropedImage, ...props } = useImageCrop()
