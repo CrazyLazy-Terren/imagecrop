@@ -1,6 +1,6 @@
 {
   "name": "@crazylazy/react-image-crop",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A toolset for building an image cropping interface in React.",
   "keywords": [
     "image",
@@ -37,7 +37,10 @@
     "test": "echo \"No test specified\"  ",
     "build:css": "postcss src/index.css -o dist/index.css",
     "build": "tsc -p tsconfig.build.json && npm run build:css",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "release": "git add . && git commit -m 'chore: updates' || true && npm version patch && git push --follow-tags",
+    "release:minor": "git add . && git commit -m 'chore: updates' || true && npm version minor && git push --follow-tags",
+    "release:major": "git add . && git commit -m 'chore: updates' || true && npm version major && git push --follow-tags"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
