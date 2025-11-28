@@ -64,6 +64,13 @@ Hidden the background pattern and customize:
 </ImageCrop>
 ```
 
+Fixed ratio:
+
+```tsx
+<ImageCrop {...props} ratio={1} />
+```
+![ratio](/RatioDemo.gif)
+
 `ImageCrop` component props:
 
 ```tsx
