@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect, useLayoutEffect, useCallback } from 'react'
 import type { Rectangle } from './type'
+import { cn } from './utils'
 
 type ImageCropProps = {
   image: HTMLImageElement | null
@@ -8,10 +9,13 @@ type ImageCropProps = {
   setImageSize: React.Dispatch<React.SetStateAction<Rectangle | null>>
   cropSize: Rectangle | null
   setCropSize: React.Dispatch<React.SetStateAction<Rectangle | null>>
+  className?: string // custom class names
   edgeSize?: number // the sensitive area size for detecting handle hover
   canvasPadding?: number // padding between image and canvas border
   handleSize?: number // size of the handle bars
   ratio?: number | 'free' // a fixed ratio for cropping box to respect
+  transparentBg?: boolean // hide the checkerboard background
+  children?: React.ReactNode
 }
 
 export const ImageCrop: React.FC<ImageCropProps> = ({
@@ -21,10 +25,13 @@ export const ImageCrop: React.FC<ImageCropProps> = ({
   setImageSize,
   cropSize,
   setCropSize,
+  className,
+  transparentBg,
   edgeSize = 20,
   canvasPadding = 10,
   handleSize = 10,
   ratio = 'free',
+  children,
 }) => {
   const [initialCropSize, setInitialCropSize] = useState<Rectangle>({ x: 0, y: 0, width: 0, height: 0 })
   const [startPoint, setStartPoint] = useState<{ x: number; y: number }>({ x: 0, y: 0 })
@@ -396,7 +403,15 @@ export const ImageCrop: React.FC<ImageCropProps> = ({
   )
 
   return (
-    <div className="size-full relative transparent-bg" onMouseMove={onMouseMove}>
+    <div
+      className={cn(
+        'size-full relative',
+        {
+          'transparent-bg': !transparentBg,
+        },
+        className
+      )}
+      onMouseMove={onMouseMove}>
       <canvas className="size-full" ref={imageRef} />
       <canvas
         className={'absolute size-full top-0 left-0 mix-blend-difference ' + (image ? '' : 'opacity-0 pointer-events-none ')}
@@ -453,12 +468,16 @@ export const ImageCrop: React.FC<ImageCropProps> = ({
             e.stopPropagation()
             handleFile(e)
           }}>
-          <div
-            className={`p-4 border-2 border-dashed ${
-              dropState === 'over' ? 'border-blue-400 text-blue-500' : 'border-gray-400 text-gray-500'
-            } bg-gray-50/75 rounded-lg`}>
-            Click or Drop Image Here to Crop
-          </div>
+          {children ? (
+            children
+          ) : (
+            <div
+              className={`p-4 border-2 border-dashed ${
+                dropState === 'over' ? 'border-blue-400 text-blue-500' : 'border-gray-400 text-gray-500'
+              } bg-gray-50/75 rounded-lg`}>
+              Click or Drop Image Here to Crop
+            </div>
+          )}
         </div>
       )}
     </div>

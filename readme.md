@@ -1,8 +1,14 @@
+# React Image Crop
+
+[![npm version](https://img.shields.io/npm/v/@crazylazy/react-image-crop)](https://www.npmjs.com/package/@crazylazy/react-image-crop)
+[![downloads](https://img.shields.io/npm/dm/@crazylazy/react-image-crop)](https://www.npmjs.com/package/@crazylazy/react-image-crop)
+[![license](https://img.shields.io/npm/l/@crazylazy/react-image-crop)](https://www.npmjs.com/package/@crazylazy/react-image-crop)
+
 ## Feature
 
-It's package is absctacted from my website [ImageCrop](https://www.crazylazy.xyz/apps/imagecrop?from=github) to help developers quickly build an image cropping interface in React.
+The package is from my website, [ImageCrop](https://www.crazylazy.xyz/apps/imagecrop?from=github), and is designed to help developers quickly build an image cropping interface in React.
 
-It provides an interface that is as intuitive as that of other desktop-level image editing tools.
+Its interface is as intuitive as those of other desktop-level image editing tools.
 
 ![demo](/demo.gif)
 
@@ -17,15 +23,18 @@ npm install @crazylazy/react-image-crop
 ```tsx
 import { ImageCrop, useImageCrop } from '@crazylazy/react-image-crop'
 const App = () => {
-  // logic core for image cropping
+  // The core is used for image cropping.
   const { getCropedImage, ...props } = useImageCrop()
   return (
-    <div className="p-10 h-[50svh]">
-      {/* cropping UI, it will fill the container */}
-      <ImageCrop {...props} />
+    <>
+      <div className="p-10 h-[50svh]">
+        {/* The cropping UI will fill the container. */}
+        <ImageCrop {...props} />
+      </div>
       <div className="flex gap-4">
         <button
           onClick={async () => {
+            // getCropedImage accepts a quality parameter and returns a Blob of the cropped image.
             const blob = await getCropedImage(0.8)
             if (blob) {
               const url = URL.createObjectURL(blob)
@@ -40,14 +49,24 @@ const App = () => {
         </button>
         <button onClick={() => props.setImage(null)}>Clear Image</button>
       </div>
-    </div>
+    </>
   )
 }
 ```
 
+## Customization
+
+Hidden the background pattern and customize:
+
+```tsx
+<ImageCrop {...props} transparentBg>
+  <Button>Your Custom Upload Button</Button>
+</ImageCrop>
+```
+
 `ImageCrop` component props:
 
-```ts
+```tsx
 type ImageCropProps = {
   image: HTMLImageElement | null
   setImage: React.Dispatch<React.SetStateAction<HTMLImageElement | null>>
@@ -55,10 +74,13 @@ type ImageCropProps = {
   setImageSize: React.Dispatch<React.SetStateAction<Rectangle | null>>
   cropSize: Rectangle | null
   setCropSize: React.Dispatch<React.SetStateAction<Rectangle | null>>
+  className?: string // custom class names
   edgeSize?: number // the sensitive area size for detecting handle hover
   canvasPadding?: number // padding between image and canvas border
   handleSize?: number // size of the handle bars
   ratio?: number | 'free' // a fixed ratio for cropping box to respect
+  transparentBg?: boolean // hide the checkerboard background
+  children?: React.ReactNode
 }
 ```
 
