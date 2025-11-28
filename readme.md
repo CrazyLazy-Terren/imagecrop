@@ -8,7 +8,7 @@
 
 The package is from my website, [ImageCrop](https://www.crazylazy.xyz/apps/imagecrop?from=github), and is designed to help developers quickly build an image cropping interface in React.
 
-Its interface is as intuitive as those of other desktop-level image editing tools.
+Its interface is as intuitive as those desktop-level image editing tools.
 
 ![demo](/demo.gif)
 
@@ -84,7 +84,7 @@ type ImageCropProps = {
 }
 ```
 
-If the styles are not applied correctly include the CSS file:
+It's developed and tested under the React 19 environment with Tailwind CSS. If the styles are not applied correctly include the CSS file:
 
 ```jsx
 import '@crazylazy/react-image-crop/dist/index.css'

@@ -8,7 +8,7 @@ const App = () => {
   const { getCropedImage, ...props } = useImageCrop()
   return (
     <div className="p-10 h-[50svh]">
-      <ImageCrop {...props} transparentBg={false} />
+      <ImageCrop {...props} transparentBg={false} ratio={1} />
       <div className="flex gap-4">
         <button
           onClick={async () => {
