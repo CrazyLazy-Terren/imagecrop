@@ -22,6 +22,9 @@ npm install @crazylazy/react-image-crop
 
 ```tsx
 import { ImageCrop, CropPreview, useImageCrop } from '@crazylazy/react-image-crop'
+// Import the tailwindCSS file for default styles.
+import '@crazylazy/react-image-crop/style.css'
+
 const App = () => {
   // The core is used for image cropping.
   const { getCropedImage, ...props } = useImageCrop()
@@ -94,11 +97,7 @@ type ImageCropProps = {
 }
 ```
 
-It's developed and tested under the React 19 environment with Tailwind CSS. If the styles are not applied correctly include the CSS file:
-
-```jsx
-import '@crazylazy/react-image-crop/dist/index.css'
-```
+This is developed and tested under the React 19 environment with Tailwind CSS.
 
 ## Development
 

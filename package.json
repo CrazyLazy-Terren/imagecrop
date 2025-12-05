@@ -1,6 +1,6 @@
 {
   "name": "@crazylazy/react-image-crop",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "This is a modular set for creating an image cropping interface in React. A good place to start is by copying and pasting the example code snippet into your project.",
   "keywords": [
     "image",
@@ -31,11 +31,13 @@
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "style": "dist/index.css",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
+    "./style.css": "./dist/index.css",
     "./dist/index.css": "./dist/index.css"
   },
   "files": [
@@ -64,6 +66,7 @@
     "clsx": "^2.1.1",
     "postcss": "^8.5.6",
     "postcss-cli": "^11.0.1",
+    "postcss-import": "^16.1.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "tailwind-merge": "^3.4.0",
