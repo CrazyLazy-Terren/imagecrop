@@ -6,9 +6,9 @@
 
 ## Feature
 
-The package is from my website, [ImageCrop](https://www.crazylazy.xyz/apps/imagecrop?from=github), and is designed to help developers quickly build an image cropping interface in React.
+The package is from the [ImageCrop](https://www.crazylazy.xyz/apps/imagecrop?from=github) tool, and is designed to help developers quickly build an image cropping interface in React.
 
-Its interface is as intuitive as those desktop-level image editing tools.
+The image is cropped using the canvas element, then compressed using the browser's built-in capabilities if you set the quality parameter. The interaction is as intuitive as with desktop-level image editing tools such as Photoshop.
 
 ![demo](/demo.gif)
 
@@ -21,7 +21,7 @@ npm install @crazylazy/react-image-crop
 ## Usage
 
 ```tsx
-import { ImageCrop, useImageCrop } from '@crazylazy/react-image-crop'
+import { ImageCrop, CropPreview, useImageCrop } from '@crazylazy/react-image-crop'
 const App = () => {
   // The core is used for image cropping.
   const { getCropedImage, ...props } = useImageCrop()
@@ -31,6 +31,8 @@ const App = () => {
         {/* The cropping UI will fill the container. */}
         <ImageCrop {...props} />
       </div>
+      {/* Preview of the cropped image. */}
+      <CropPreview className="size-[200px]" image={props.image} imageSize={props.imageSize} cropSize={props.cropSize} />
       <div className="flex gap-4">
         <button
           onClick={async () => {
@@ -69,6 +71,7 @@ Fixed ratio:
 ```tsx
 <ImageCrop {...props} ratio={1} />
 ```
+
 ![ratio](/RatioDemo.gif)
 
 `ImageCrop` component props:
@@ -96,3 +99,12 @@ It's developed and tested under the React 19 environment with Tailwind CSS. If t
 ```jsx
 import '@crazylazy/react-image-crop/dist/index.css'
 ```
+
+## Development
+
+```bash
+npm install
+npm run dev
+```
+
+Modify the `src/dev.tsx` file to use the component.

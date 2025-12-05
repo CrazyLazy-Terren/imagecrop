@@ -1,4 +1,6 @@
-@import 'tailwindcss';
+@import "tailwindcss/theme";
+@import "tailwindcss/utilities";
+
 .transparent-bg {
   background-color: #fff;
   background-image: linear-gradient(45deg, #ddd 25%, transparent 25%), linear-gradient(-45deg, #ddd 25%, transparent 25%),

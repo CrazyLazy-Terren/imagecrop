@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom/client'
-import { ImageCrop } from './ImageCrop'
-import { useImageCrop } from './hook'
+import { ImageCrop, CropPreview, useImageCrop } from './index'
 import './index.css'
 
 const App = () => {
   const { getCropedImage, ...props } = useImageCrop()
   return (
     <div className="p-10 h-[50svh]">
-      <ImageCrop {...props} transparentBg={false} ratio={1} />
+      <ImageCrop className="" {...props} transparentBg={false} />
+      <CropPreview className="size-[200px]" image={props.image} imageSize={props.imageSize} cropSize={props.cropSize} />
       <div className="flex gap-4">
         <button
           onClick={async () => {
