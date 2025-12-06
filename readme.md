@@ -22,7 +22,7 @@ npm install @crazylazy/react-image-crop
 
 ```tsx
 import { ImageCrop, CropPreview, useImageCrop } from '@crazylazy/react-image-crop'
-// Import the tailwindCSS file for default styles.
+// Import the style file.
 import '@crazylazy/react-image-crop/style.css'
 
 const App = () => {
@@ -34,7 +34,7 @@ const App = () => {
         {/* The cropping UI will fill the container. */}
         <ImageCrop {...props} />
       </div>
-      {/* Preview of the cropped image. */}
+      {/* This is a preview of the cropped image. Specify the size or allow it to fill the parent container by default. */}
       <CropPreview className="size-[200px]" image={props.image} imageSize={props.imageSize} cropSize={props.cropSize} />
       <div className="flex gap-4">
         <button
